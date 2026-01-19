@@ -1,177 +1,176 @@
-Mini Learning Management System (Mini LMS)
-Project Overview
+🎓 Mini Learning Management System (Mini LMS)
+
+🚀 Project Overview
 
 This project implements a Mini Learning Management System (LMS) using FastAPI for the backend and HTML, CSS, and JavaScript for the frontend.
-It allows managing courses, enrolling learners, and tracking learning progress through RESTful APIs.
 
-The project demonstrates clean backend architecture and frontend–backend integration.
+✨ It allows:
 
-Features
+➜ Managing courses 📚
+➜ Enrolling learners 👩‍🎓👨‍🎓
+➜ Tracking learning progress 📊
 
-User (learner) management
+The project focuses on clean backend architecture and smooth frontend–backend integration using RESTful APIs.
 
-Course management
+🌟 Features
 
-Enrollment management
+✅ User (Learner) Management
+✅ Course Management
+✅ Enrollment Management
+✅ Progress Tracking per Course
+✅ RESTful API Design
+✅ Frontend Dashboard using Fetch API
+✅ Automated API Testing
 
-Progress tracking per course
+🛠 Technology Stack
 
-RESTful API design
+🔧 Backend
 
-Frontend dashboard using Fetch API
+➜🐍 Python
+➜⚡ FastAPI
+➜🗄 SQLAlchemy
+➜💾 SQLite
 
-Technology Stack
-Backend
+🎨 Frontend
 
-Python
+➜🌐 HTML
+➜🎨 CSS
+➜🧠 JavaScript (Fetch API)
 
-FastAPI
+🧪 Testing
 
-SQLAlchemy
+➜🧩 pytest
+➜🔍 FastAPI TestClient
 
-SQLite
-
-Frontend
-
-HTML
-
-CSS
-
-JavaScript (Fetch API)
-
-Project Structure
-mini_lms/
+📂 Project Structure
+PROJECTLMS/
 │
-├── app/                         # Backend application
-│   ├── main.py                  # FastAPI app & CORS config
-│   ├── database.py              # Database connection
-│   ├── models.py                # SQLAlchemy models
-│   ├── schemas.py               # Pydantic schemas
-│   └── routes/                  # API routes
-│       ├── users.py
-│       ├── courses.py
-│       ├── enrollment.py
-│       └── progress.py
+├── app/
+│   ├── main.py              # 🚀 FastAPI app & CORS config
+│   ├── database.py          # 🗄 Database connection
+│   ├── models.py            # 📦 SQLAlchemy models
+│   ├── schemas.py           # 📄 Pydantic schemas
+│   └── routes/
+│       ├── users.py         # 👤 User APIs
+│       ├── courses.py       # 📚 Course APIs
+│       ├── enrollment.py    # 📝 Enrollment APIs
+│       └── progress.py      # 📊 Progress APIs
 │
-├── frontend/                    # Frontend files
-│   ├── index.html               # UI layout
-│   ├── style.css                # Styling
-│   └── script.js                # Fetch API logic
+├── frontend/
+│   ├── index.html           # 🖥 UI layout
+│   ├── style.css            # 🎨 Styling
+│   └── script.js            # 🔗 Fetch API logic
 │
-├── mini_lms.db                  # SQLite database
-├── requirements.txt             # Python dependencies
-└── README.md
+├── tests/
+│   ├── test_users.py        # 🧪 User tests
+│   ├── test_enrollment.py   # 🧪 Enrollment tests
+│   └── test_progress.py     # 🧪 Progress tests
+│
+├── mini_lms.db              # 💾 SQLite database
+├── requirements.txt         # 📦 Dependencies
+├── README.md
+└── README.txt
 
-Database Design
-User
+🗄 Database Design
 
-id
+👤 User
 
-name
+➜id
+➜name
+➜email (unique)
 
-email (unique)
+📚 Course
 
-Course
+➜id
+➜title
+➜description
 
-id
+📝 Enrollment
 
-title
+➜user_id
+➜course_id
+➜enrolled_at
 
-description
+➡️ Handles many-to-many relationship between users and courses.
 
-Enrollment
+📊 Progress
 
-user_id
+➜enrollment_id
+➜progress_percentage
+➜last_updated
 
-course_id
+➡️ Tracks progress for each enrolled course.
 
-enrolled_at
+🔄 Application Workflow
 
-Handles many-to-many relationship between users and courses.
+1️⃣ Create user 👤
+2️⃣ Create course 📚
+3️⃣ Enroll user into course 📝
+4️⃣ Automatically create progress (0%) 📊
+5️⃣ Update progress 🔄
+6️⃣ View responses via frontend or Swagger UI 🌐
 
-Progress
+▶️ How to Run the Project
 
-enrollment_id
+🔹 Step 1: Install Dependencies
 
-progress_percentage
-
-last_updated
-
-Tracks progress for each enrolled course.
-
-Application Workflow
-
-Create user
-
-Create course
-
-Enroll user into course
-
-Automatically create progress (0%)
-
-Update progress
-
-View responses via frontend or Swagger
-
-How to Run the Project
-Step 1: Install Dependencies
 pip install -r requirements.txt
 
-Step 2: Run Backend
+
+🔹 Step 2: Run Backend
+
 python -m uvicorn app.main:app --reload
 
-Step 3: Access Backend APIs
 
+🔹 Step 3: Access Backend APIs
 Open in browser:
 
 http://127.0.0.1:8000/docs
 
-Running the Frontend
-Option 1 (Recommended)
+🌐 Running the Frontend
 
-From the frontend folder:
+➜From the frontend folder:
 
 python -m http.server 5500
 
-
-Open:
+➜Open in browser:
 
 http://127.0.0.1:5500/index.html
 
-API Endpoints
-Users
+🔗 API Endpoints
 
-POST /users
+👤 Users
 
-GET /users
+➜POST /users
+➜GET /users
 
-Courses
+📚 Courses
 
-POST /courses
+➜POST /courses
+➜GET /courses
 
-GET /courses
+📝 Enrollments
 
-Enrollments
+➜POST /enrollments
 
-POST /enrollments
+📊 Progress
 
-Progress
+➜PUT /progress
 
-PUT /progress
+✅ Validations
 
-Validations
+✔ Duplicate user emails are blocked
+✔ Enrollment requires valid user and course
+✔ Duplicate enrollments are prevented
+✔ Progress restricted between 0–100
+✔ Only enrolled users can update progress
 
-Duplicate user emails are blocked
+🏁 Conclusion
 
-Enrollment requires valid user and course
+This Mini LMS demonstrates a clean, scalable backend architecture combined with a simple yet effective frontend.
 
-Duplicate enrollments prevented
+🎯 It fulfills core LMS requirements and serves as a strong foundation for:
 
-Progress restricted between 0–100
-
-Only enrolled users can update progress
-
-Conclusion
-
-This Mini LMS demonstrates a clean and scalable backend architecture along with a simple yet functional frontend.
-It fulfills the requirements of managing courses, enrollments, and learner progress, and serves as a strong foundation for educational platforms.
+➜Educational platforms
+➜Academic projects
+➜Backend/API portfolio demonstrations
