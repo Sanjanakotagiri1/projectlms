@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.env
+.env.*
+*.db
+*.log
+
+# Windows / OneDrive junk
+ntuser.dat*
+desktop.ini
+Thumbs.db

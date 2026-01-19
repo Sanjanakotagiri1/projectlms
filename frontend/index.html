@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini LMS Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>📘 Mini Learning Management System</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Create Student</h2>
+        <input id="uname" placeholder="Student Name">
+        <input id="uemail" placeholder="Email">
+        <button onclick="createUser()">Create Student</button>
+    </div>
+
+    <div class="card">
+        <h2>Create Course</h2>
+        <input id="ctitle" placeholder="Course Title">
+        <input id="cdesc" placeholder="Description">
+        <button onclick="createCourse()">Create Course</button>
+    </div>
+
+    <div class="card">
+        <h2>Enroll Student</h2>
+        <select id="studentSelect"></select>
+        <select id="courseSelect"></select>
+        <button onclick="enrollUser()">Enroll</button>
+    </div>
+
+    <div class="card">
+        <h2>Update Progress</h2>
+        <select id="progressStudentSelect"></select>
+        <select id="progressCourseSelect"></select>
+        <input id="pval" placeholder="Progress (0–100)">
+        <button onclick="updateProgress()">Update Progress</button>
+    </div>
+
+</div>
+
+<div class="card">
+    <h2>Track Progress</h2>
+    <select id="trackStudentSelect"></select>
+    <select id="trackCourseSelect"></select>
+    <button onclick="trackProgress()">Check Progress</button>
+
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    <p id="progressText">Progress: --%</p>
+</div>
+
+
+<div class="output-section">
+    <h2>System Response</h2>
+    <pre id="output">Waiting for action...</pre>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
