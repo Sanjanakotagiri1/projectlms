@@ -1,10 +1,16 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
+from app.database import engine
+from app.models import Base
 
-from .routes import users, courses, enrollment, progress
+
+from app.routes import users, courses, enrollment, progress
 
 app = FastAPI()
+
+Base.metadata.create_all(bind=engine, checkfirst=True)
+
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from datetime import datetime
 
 
@@ -9,12 +9,11 @@ class UserCreate(BaseModel):
 
 
 class UserResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     name: str
     email: EmailStr
-
-    class Config:
-        from_attributes = True
 
 
 # -------- COURSES --------
@@ -24,12 +23,11 @@ class CourseCreate(BaseModel):
 
 
 class CourseResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     title: str
-    description: str | None
-
-    class Config:
-        from_attributes = True
+    description: str | None = None
 
 
 # -------- ENROLLMENT --------
@@ -39,13 +37,12 @@ class EnrollmentCreate(BaseModel):
 
 
 class EnrollmentResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     user_id: int
     course_id: int
     enrolled_at: datetime
-
-    class Config:
-        from_attributes = True
 
 
 # -------- PROGRESS --------
@@ -56,9 +53,8 @@ class ProgressUpdate(BaseModel):
 
 
 class ProgressResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     enrollment_id: int
     progress_percentage: int
     last_updated: datetime
-
-    class Config:
-        from_attributes = True

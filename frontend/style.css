@@ -1,74 +1,93 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f2f4f7;
+    background: linear-gradient(120deg, #eef2f3, #d9e4f5);
+    min-height: 100vh;
 }
 
 header {
-    background: #2c3e50;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
     color: white;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     padding: 30px;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 320px;
+}
+
+.card button {
+    margin-top: auto;
+}
+
+.card:hover {
+    transform: translateY(-6px);
 }
 
 .card h2 {
-    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2a5298;
 }
 
-input, select {
+input,
+select {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
+    padding: 11px;
+    margin-bottom: 12px;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 14px;
+    height: 44px;
+    background-color: white;
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background: #3498db;
+    padding: 12px;
+    background: linear-gradient(90deg, #36d1dc, #5b86e5);
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 15px;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-}
-
-button:hover {
-    background: #2980b9;
 }
 
 .output-section {
     margin: 0 30px 30px;
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 pre {
-    background: #f4f4f4;
+    background: #f4f6f8;
     padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto;
+    border-radius: 10px;
+    font-size: 13px;
 }
 
 .progress-container {
@@ -76,15 +95,15 @@ pre {
     background: #e0e0e0;
     border-radius: 20px;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 #progressBar {
-    height: 20px;
+    height: 22px;
     width: 0%;
-    background: #2ecc71;
-    text-align: center;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
-    font-size: 12px;
+    text-align: center;
+    line-height: 22px;
     transition: width 0.4s ease;
 }

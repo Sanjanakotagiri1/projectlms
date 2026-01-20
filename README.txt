@@ -7,7 +7,7 @@ This project implements a Mini Learning Management System (LMS) using FastAPI fo
 ✨ It allows:
 
 ➜ Managing courses 📚
-➜ Enrolling learners 👩‍🎓👨‍🎓
+➜ Enrolling learners 👩‍🎓
 ➜ Tracking learning progress 📊
 
 The project focuses on clean backend architecture and smooth frontend–backend integration using RESTful APIs.
@@ -46,7 +46,7 @@ The project focuses on clean backend architecture and smooth frontend–backend 
 PROJECTLMS/
 │
 ├── app/
-│   ├── main.py              # 🚀 FastAPI app & CORS config
+│   ├── main.py              # 🚀 FastAPI app & CORS configration
 │   ├── database.py          # 🗄 Database connection
 │   ├── models.py            # 📦 SQLAlchemy models
 │   ├── schemas.py           # 📄 Pydantic schemas

@@ -2,63 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mini LMS Dashboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mini Learning Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>📘 Mini Learning Management System</h1>
+    <h1>📚 Mini Learning Management System</h1>
+    <p>Manage students, courses, enrollments, and progress</p>
 </header>
 
 <div class="container">
 
     <div class="card">
-        <h2>Create Student</h2>
-        <input id="uname" placeholder="Student Name">
-        <input id="uemail" placeholder="Email">
+        <h2>👤 Create Student</h2>
+        <input type="text" id="userName" placeholder="Student Name">
+        <input type="email" id="userEmail" placeholder="Student Email">
         <button onclick="createUser()">Create Student</button>
     </div>
 
     <div class="card">
-        <h2>Create Course</h2>
-        <input id="ctitle" placeholder="Course Title">
-        <input id="cdesc" placeholder="Description">
+        <h2>📘 Create Course</h2>
+        <input type="text" id="courseTitle" placeholder="Course Title">
+        <input type="text" id="courseDescription" placeholder="Course Description">
         <button onclick="createCourse()">Create Course</button>
     </div>
 
     <div class="card">
-        <h2>Enroll Student</h2>
-        <select id="studentSelect"></select>
-        <select id="courseSelect"></select>
-        <button onclick="enrollUser()">Enroll</button>
+        <h2>📝 Enroll Student</h2>
+        <select id="enrollUser" aria-label="Select student to enroll"></select>
+        <select id="enrollCourse" aria-label="Select course to enroll"></select>
+        <button onclick="enrollStudent()">Enroll</button>
     </div>
 
     <div class="card">
-        <h2>Update Progress</h2>
-        <select id="progressStudentSelect"></select>
-        <select id="progressCourseSelect"></select>
-        <input id="pval" placeholder="Progress (0–100)">
+        <h2>📊 Update Progress</h2>
+        <select id="progressUser" aria-label="Select student for progress update"></select>
+        <select id="progressCourse" aria-label="Select course for progress update"></select>
+        <input type="number" id="progressValue" placeholder="Progress (0–100)">
         <button onclick="updateProgress()">Update Progress</button>
     </div>
 
 </div>
 
-<div class="card">
-    <h2>Track Progress</h2>
-    <select id="trackStudentSelect"></select>
-    <select id="trackCourseSelect"></select>
-    <button onclick="trackProgress()">Check Progress</button>
-
+<div class="output-section">
+    <h2>📈 Progress Status</h2>
     <div class="progress-container">
-        <div id="progressBar"></div>
+        <div id="progressBar">0%</div>
     </div>
-    <p id="progressText">Progress: --%</p>
+    <div id="progressText">No progress updated</div>
 </div>
 
-
 <div class="output-section">
-    <h2>System Response</h2>
+    <h2>🖥 API Response</h2>
     <pre id="output">Waiting for action...</pre>
 </div>
 

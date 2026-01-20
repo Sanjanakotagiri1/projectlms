@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
-from datetime import datetime
-
+from datetime import datetime, timezone
 from .database import Base
 
 
@@ -31,7 +30,11 @@ class Enrollment(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     course_id = Column(Integer, ForeignKey("courses.id"))
-    enrolled_at = Column(DateTime, default=datetime.utcnow)
+
+    enrolled_at = Column(
+        DateTime,
+        default=lambda: datetime.now(timezone.utc)
+    )
 
     user = relationship("User", back_populates="enrollments")
     course = relationship("Course", back_populates="enrollments")
@@ -44,6 +47,11 @@ class Progress(Base):
     id = Column(Integer, primary_key=True, index=True)
     enrollment_id = Column(Integer, ForeignKey("enrollments.id"), unique=True)
     progress_percentage = Column(Integer, nullable=False)
-    last_updated = Column(DateTime, default=datetime.utcnow)
+
+    last_updated = Column(
+        DateTime,
+        default=lambda: datetime.now(timezone.utc)
+    )
 
     enrollment = relationship("Enrollment", back_populates="progress")
+
