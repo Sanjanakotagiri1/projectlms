@@ -4,26 +4,27 @@ import uuid
 
 client = TestClient(app)
 
-def test_invalid_progress():
+def test_enrollment_and_duplicate():
     user = client.post("/users", json={
-        "name": "Progress User",
-        "email": f"progress_{uuid.uuid4()}@example.com"
+        "name": "Enroll User",
+        "email": f"enroll_{uuid.uuid4()}@example.com"
     }).json()
 
     course = client.post("/courses", json={
-        "title": f"Progress Course {uuid.uuid4()}",
-        "description": "Testing progress"
+        "title": f"Course {uuid.uuid4()}",
+        "description": "Testing"
     }).json()
 
-    client.post("/enrollments", json={
+    enroll_response = client.post("/enrollments", json={
         "user_id": user["id"],
         "course_id": course["id"]
     })
 
-    response = client.put("/progress", json={
+    assert enroll_response.status_code == 200
+
+    duplicate_response = client.post("/enrollments", json={
         "user_id": user["id"],
-        "course_id": course["id"],
-        "progress": 150
+        "course_id": course["id"]
     })
 
-    assert response.status_code == 400
+    assert duplicate_response.status_code == 400

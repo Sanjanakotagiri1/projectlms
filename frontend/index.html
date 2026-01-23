@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Mini Learning Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,17 +31,16 @@
 
     <div class="card">
         <h2>📝 Enroll Student</h2>
-        <select id="enrollUser" aria-label="Select student to enroll"></select>
-        <select id="enrollCourse" aria-label="Select course to enroll"></select>
+        <select id="enrollUser" aria-label="Select student for enrollment"></select>
+        <select id="enrollCourse" aria-label="Select course for enrollment"></select>
         <button onclick="enrollStudent()">Enroll</button>
     </div>
 
     <div class="card">
-        <h2>📊 Update Progress</h2>
-        <select id="progressUser" aria-label="Select student for progress update"></select>
-        <select id="progressCourse" aria-label="Select course for progress update"></select>
-        <input type="number" id="progressValue" placeholder="Progress (0–100)">
-        <button onclick="updateProgress()">Update Progress</button>
+        <h2>📊 Progress</h2>
+        <select id="progressUser" aria-label="Select student for progress"></select>
+        <select id="progressCourse" aria-label="Select course for progress"></select>
+        <button onclick="updateProgress()">Track Progress</button>
     </div>
 
 </div>

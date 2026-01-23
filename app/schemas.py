@@ -49,7 +49,6 @@ class EnrollmentResponse(BaseModel):
 class ProgressUpdate(BaseModel):
     user_id: int
     course_id: int
-    progress: int
 
 
 class ProgressResponse(BaseModel):
